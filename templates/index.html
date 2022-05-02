@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body %}
+<center><h2>Works log</h2></center>
+{% for act in param['data'] %}
+<h2>Action # {{ act['id'] }}</h2>
+<table width="100%" cellspacing="0" cellpadding="4" border="0">
+    <tr>
+        <th align="left">Title of activity</th>
+        <th align="left">Team leader</th>
+        <th align="left">Duration</th>
+        <th align="left">List of collaborators</th>
+        <th align="left">Is finished</th>
+    </tr>
+    <tr>
+        <td bgcolor="#E6E6FA">{{ act['Title of activity'] }}</td>
+        <td bgcolor="#E6E6FA">{{ act['Team leader'] }}</td>
+        <td bgcolor="#E6E6FA">{{ act['Duration'] }}</td>
+        <td bgcolor="#E6E6FA">{{ act['List of collaborators'] }}</td>
+        {% if act['Is finished'] == 'Is finished' %}
+            <td bgcolor="#EE83EE">{{ act['Is finished'] }}</td>
+        {% else %}
+            <td bgcolor="#DDA0DD">{{ act['Is finished'] }}</td>
+        {% endif %}
+    </tr>
+</table>
+{% endfor %}
+{% endblock %}
